@@ -46,9 +46,21 @@ const dossierPrincipal = {
 };
 //Etape 1: fonction afficherDossier qui va afficher le nom du dossier principal
 //en utilisant la variable dossierPrincipal
-function afficherDossier(dossierPrincipal) {
+function afficherDossier(dossier) {
    
-  console.log(`🗂️ ${dossierPrincipal.nom}`);
+  console.log(`🗂️ ${dossier.nom}`);
 }
-afficherDossier(dossierPrincipal);
+//afficherDossier(dossierPrincipal);
 
+//Etape 2: 
+function afficherDossierIteratif(dossier) {
+afficherDossier(dossierPrincipal)
+    for (let i of dossier.contenu) {
+        if (i.contenu) {
+           console.log ('🗂️' + i.nom);  // Dossier
+        } else {
+           console.log('📑' + i.nom);  // Fichier
+        }  
+    }
+}
+afficherDossierIteratif(dossierPrincipal)
