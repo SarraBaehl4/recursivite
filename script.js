@@ -51,42 +51,49 @@ function afficherDossier(dossier) {
 }
 //afficherDossier(dossierPrincipal);
 
-//Etape 2:
-//fonction afficherDossierIteratif:
-function afficherDossierIteratif(dossier) {
-  afficherDossier(dossier);
-  for (let i of dossier.contenu) {
-    if (i.contenu) {
-      console.log("🗂️" + i.nom); // Dossier
-    } else {
-      console.log("📑" + i.nom); // Fichier
-    }
-  }
-}
+//etape 3: afficher tout les sous-dossiers:
+//fonction itérative:
 
-//etape 2: afficher tout les sous-dossiers:
-  //fonction itérative:
 function afficherDossierIteratif(dossier) {
   afficherDossier(dossier);
-  for (let i of dossier.contenu) {
-    if (i.contenu) {
-      console.log("🗂️" + i.nom); // Dossier
-    } else {
-      console.log("📑" + i.nom); // Fichier
-    }
-  }
-}
-  //fonction recursive:
-function afficherDossierRecursif(dossier, index = 0) {
   const sousDossierAda = dossier.contenu;
-  if (index < sousDossierAda.length) {
-    if (sousDossierAda[index].contenu) {
-      console.log(" 🗂️" + sousDossierAda[index].nom);
+  for (let i = 0; i < sousDossierAda.length; i++) {
+    if (sousDossierAda[i].contenu) {
+      console.log(" 🗂️" + sousDossierAda[i].nom); // Dossier
+      const sousDossier = sousDossierAda[i].contenu;
+      for (let j = 0; j < sousDossier.length; j++) {
+        if (sousDossier[j].contenu) {
+          console.log(" 🗂️" + sousDossier[j].nom); // sous-dossier niveau 1
+          const sousSousDossier = sousDossier[j].contenu;
+          for (let h = 0; h < sousSousDossier.length; h++) {
+            if (sousSousDossier[h].contenu) {
+              console.log(" 🗂️" + sousSousDossier[h].nom); // sous-dossier niveau 2
+            } else {
+              console.log(" 📑" + sousSousDossier[h].nom);
+            }
+          }
+        } else {
+          console.log(" 📑" + sousDossier[j].nom);
+        }
+      }
     } else {
-      console.log(" 📑" + sousDossierAda[index].nom);
+      console.log(" 📑" + sousDossierAda[i].nom); // Fichier
     }
-    afficherDossierRecursif(dossier, index + 1);
   }
 }
-afficherDossier(dossierPrincipal);
-afficherDossierRecursif(dossierPrincipal);
+afficherDossierIteratif(dossierPrincipal);
+
+//fonction recursive:
+// function afficherDossierRecursif(dossier, index = 0) {
+//   const sousDossierAda = dossier.contenu;
+//   if (index < sousDossierAda.length) {
+//     if (sousDossierAda[index].contenu) {
+//       console.log(" 🗂️" + sousDossierAda[index].nom);
+//     } else {
+//       console.log(" 📑" + sousDossierAda[index].nom);
+//     }
+//     afficherDossierRecursif(dossier, index + 1);
+//   }
+// }
+//afficherDossier(dossierPrincipal);
+//afficherDossierRecursif(dossierPrincipal);
