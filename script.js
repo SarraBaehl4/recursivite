@@ -52,9 +52,10 @@ function afficherDossier(dossier) {
 }
 //afficherDossier(dossierPrincipal);
 
-//Etape 2: 
+//Etape 2:
+  //fonction afficherDossierIteratif:
 function afficherDossierIteratif(dossier) {
-afficherDossier(dossierPrincipal)
+afficherDossier(dossier)
     for (let i of dossier.contenu) {
         if (i.contenu) {
            console.log ('🗂️' + i.nom);  // Dossier
@@ -63,4 +64,23 @@ afficherDossier(dossierPrincipal)
         }  
     }
 }
-afficherDossierIteratif(dossierPrincipal)
+//afficherDossierIteratif(dossierPrincipal)
+
+  //fonction afficherDossierRecursif:
+  function afficherDossierRecursif(dossier) {
+    // Afficher d'abord le dossier principal
+    afficherDossier(dossier)
+    
+    // Puis parcourir son contenu direct
+    if (Array.isArray(dossier.contenu)) {
+      dossier.contenu.forEach(element => {
+        if (element.contenu) {
+          console.log(' 🗂️ ' + element.nom);
+        } else {
+          console.log(' 📑 ' + element.nom);
+        }
+      });
+    }
+  }
+  
+  afficherDossierRecursif(dossierPrincipal);
