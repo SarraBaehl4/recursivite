@@ -81,19 +81,20 @@ function afficherDossierIteratif(dossier) {
     }
   }
 }
-afficherDossierIteratif(dossierPrincipal);
+//afficherDossierIteratif(dossierPrincipal);
 
 //fonction recursive:
-// function afficherDossierRecursif(dossier, index = 0) {
-//   const sousDossierAda = dossier.contenu;
-//   if (index < sousDossierAda.length) {
-//     if (sousDossierAda[index].contenu) {
-//       console.log(" 🗂️" + sousDossierAda[index].nom);
-//     } else {
-//       console.log(" 📑" + sousDossierAda[index].nom);
-//     }
-//     afficherDossierRecursif(dossier, index + 1);
-//   }
-// }
-//afficherDossier(dossierPrincipal);
-//afficherDossierRecursif(dossierPrincipal);
+function afficherDossierRecursif(dossier, index = 0) {
+  const sousDossierAda = dossier.contenu;
+  if (index < sousDossierAda.length) {
+    if (sousDossierAda[index].contenu) {
+      console.log(" 🗂️" + sousDossierAda[index].nom);
+      afficherDossierRecursif(sousDossierAda[index])
+    } else {
+      console.log(" 📑" + sousDossierAda[index].nom);
+    }
+    afficherDossierRecursif(dossier, index + 1);
+  }
+}
+afficherDossier(dossierPrincipal);
+afficherDossierRecursif(dossierPrincipal);
