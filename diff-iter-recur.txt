@@ -1,0 +1,28 @@
+**Fonction itérative :
+
+*Avantages :
+
+-Plus performante pour des structures peu profondes
+-Contrôle précis de chaque niveau
+-Moins de risques de dépassement de pile d'appels
+
+*Inconvénients :
+
+-Code verbeux et répétitif
+-Difficilement maintenable
+-Extensibilité limitée
+-Complexité qui augmente avec la profondeur des dossiers
+
+**Fonction récursive :
+*Avantages :
+
+-Code plus concis et élégant
+-Structure naturelle pour les arborescences
+-Facile à comprendre et à modifier
+-S'adapte automatiquement à la profondeur des dossiers
+
+*Inconvénients :
+
+-Peut causer un dépassement de pile pour des structures très profondes
+-Performance légèrement inférieure pour de grandes structures
+-Risque de stack overflow avec des arborescences profondes

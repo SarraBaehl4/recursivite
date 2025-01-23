@@ -53,7 +53,6 @@ function afficherDossier(dossier) {
 
 //etape 3: afficher tout les sous-dossiers:
 //fonction itérative:
-
 function afficherDossierIteratif(dossier) {
   afficherDossier(dossier);
   const sousDossierAda = dossier.contenu;
@@ -81,7 +80,7 @@ function afficherDossierIteratif(dossier) {
     }
   }
 }
-//afficherDossierIteratif(dossierPrincipal);
+afficherDossierIteratif(dossierPrincipal);
 
 //fonction recursive:
 function afficherDossierRecursif(dossier, index = 0) {
@@ -89,7 +88,7 @@ function afficherDossierRecursif(dossier, index = 0) {
   if (index < sousDossierAda.length) {
     if (sousDossierAda[index].contenu) {
       console.log(" 🗂️" + sousDossierAda[index].nom);
-      afficherDossierRecursif(sousDossierAda[index])
+      afficherDossierRecursif(sousDossierAda[index]);
     } else {
       console.log(" 📑" + sousDossierAda[index].nom);
     }
